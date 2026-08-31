@@ -1,2 +1,20 @@
 # HateCR
 Este trabajo es parte de la investigación de fin de master en humanidades digitales y buscó, para el caso costarricense entender elemetos de hostildiad y odio en el país durante la campaña política.
+Es además un trabajo de estilo abierto.
+
+Resumen 
+El presente trabajo se enmarca dentro de las humanidades digitales y consta de un análisis de los discursos de odio  y hostilidad durante la campaña política en Costa Rica durante el 2025-2026 en seis diferentes momentos de relevancia política en redes sociales. Para ello se extrajo un total de 5134 comentarios de la red social X de diferentes medios de comunicación a partir de posts madre y máximo 100 replies por cada uno de ellos. Una vez normalizados, filtrados, limpiados y anonimizados se desarrolló un proceso exploratorio de datos que tuvo como fin entender la calidad de la información para el entrenamiento de modelos de clasificación mediante técnicas de procesamiento de lenguaje natural (PLN). Para lograr esto se condujo un abordaje en primera instancia de etiquetado manual de 180 comentarios y para el refinamiento del modelo se etiquetaron en total 480. En el etiquetado, y en aras de entrenar el modelo, así como también en la definición teórica se hizo una diferencia operativa entre lo que puede ser considerado odio y hostilidad mediante una tabla de intensidad. Producto del modelo y su refinamiento, se entrenaron y evaluaron diferentes modelos  de clasificación, entre ellos regresión logística, Lineal SVC y una aproximación basada en lexicón que indican posibilidad de discursos de odio y niveles de hostilidad dentro del corpus. Adicionalmente, con base en los resultados y el aparato crítico, se construyó un análisis sobre la posible dinámica de deslegitimación de los actores y el escenario político costarricense.
+
+Palabras clave:
+Procesamiento de lenguaje natural(PLN), Machine Learning, Red Social X, análisis político, humanidades digitales
+<img width="442" height="580" alt="image" src="https://github.com/user-attachments/assets/95b12b42-ece1-40d2-b8a5-916bd8054aee" />
+
+
+Abstract
+This study is situated within the field of Digital Humanities and analyzes hate speech and hostility during the 2025–2026 political campaign in Costa Rica across six different moments of political relevance on social media. For this purpose, a total of 5,134 comments were collected from the social network X from different Costa Rican media outlets, using parent posts as the starting point and retrieving a maximum of 100 replies for each of them. Once the data were normalized, filtered, cleaned, and anonymized, an exploratory data analysis was conducted to assess the quality of the information for training classification models using Natural Language Processing (NLP) techniques.
+The process initially involved the manual annotation of 180 comments, while a total of 480 comments were ultimately annotated for model refinement. Both during the annotation process and in the theoretical definition of the categories, an operational distinction was established between what could be considered hate speech and hostility through the use of an intensity scale. Following the training and refinement process, different classification approaches were trained and evaluated, including Logistic Regression, LinearSVC, and a lexicon-based approach, in order to identify potential instances of hate speech and different levels of hostility within the corpus.
+Additionally, based on the results and the theoretical framework of the research, an analysis was developed to examine possible dynamics of delegitimization involving political actors and the broader Costa Rican political landscape.
+
+Keywords: 
+Natural Langauge Processing(NLP), Machine Learning, X Social Network, political analysis, digital humanities. 
+<img width="442" height="586" alt="image" src="https://github.com/user-attachments/assets/c800f906-bf43-49e2-b6e8-e82a338e3676" />
