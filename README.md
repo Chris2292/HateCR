@@ -7,7 +7,6 @@ El presente trabajo se enmarca dentro de las humanidades digitales y consta de u
 
 Palabras clave:
 Procesamiento de lenguaje natural(PLN), Machine Learning, Red Social X, análisis político, humanidades digitales
-<img width="442" height="580" alt="image" src="https://github.com/user-attachments/assets/95b12b42-ece1-40d2-b8a5-916bd8054aee" />
 
 
 Abstract
@@ -17,4 +16,3 @@ Additionally, based on the results and the theoretical framework of the research
 
 Keywords: 
 Natural Langauge Processing(NLP), Machine Learning, X Social Network, political analysis, digital humanities. 
-<img width="442" height="586" alt="image" src="https://github.com/user-attachments/assets/c800f906-bf43-49e2-b6e8-e82a338e3676" />
