@@ -1,0 +1,17 @@
+pandas
+numpy
+python-dotenv
+pyyaml
+jupyterlab
+notebook
+ipywidgets
+matplotlib
+seaborn
+scikit-learn
+joblib
+openpyxl
+nltk
+spacy
+tqdm
+requests
+tweepy
