@@ -1,0 +1,174 @@
+metadata:
+  project: HateCR
+  version: "0.2.0"
+  timezone: "America/Costa_Rica"
+  last_updated: "2026-05-24"
+  notes:
+    - "Configuracion de eventos para piloto Full Archive y fases posteriores."
+    - "La ventana global puede sobreescribir estas ventanas por evento en notebooks."
+
+campaign_scope:
+  country: "Costa Rica"
+  election_cycle: "2025-2026"
+  platform: "X"
+  analysis_unit: "interaction_post"
+  collection_unit: "multi_layer_corpus"
+
+default_collection_windows:
+  pre_event_hours: 24
+  post_event_hours: 72
+  max_window_days: 7
+
+events:
+  - event_id: inicio_campana_2025_10_01
+    formal: true
+    formal_order: 0
+    active: true
+    event_name: "Inicio formal de la campaña electoral"
+    event_date: "2025-10-01"
+    event_start_local: "2025-10-01 00:00:00"
+    event_end_local: "2025-10-01 23:59:59"
+    timezone: "America/Costa_Rica"
+    event_type: "inicio_campana"
+    collection_window:
+      start: "2025-09-30 00:00:00-06:00"
+      end: "2025-10-02 23:59:59-06:00"
+    search_profile:
+      include_groups:
+        - formal_campaign_start
+        - campaign_general
+        - candidates_main
+        - parties_main
+        - institutions
+      optional_groups:
+        - government_context
+      exclude_groups: []
+    notes: "Inicio oficial de la campaña electoral 2025-2026. Sirve como punto basal para comparar la conversación de inicio con la recta final."
+
+  - event_id: tse_primer_encuentro_2026_01_09
+    formal: true
+    formal_order: 1
+    active: true
+    event_name: "Primer encuentro/debate del TSE"
+    event_date: "2026-01-09"
+    event_start_local: "2026-01-09 19:00:00"
+    event_end_local: "2026-01-09 21:00:00"
+    timezone: "America/Costa_Rica"
+    event_type: "debate_tse"
+    collection_window:
+      start: "2026-01-08 19:00:00-06:00"
+      end: "2026-01-10 21:00:00-06:00"
+    search_profile:
+      include_groups:
+        - formal_tse_encounters
+        - campaign_general
+        - campaign_events
+        - candidates_main
+        - parties_main
+        - institutions
+      optional_groups:
+        - government_context
+      exclude_groups: []
+    notes: "Arranque formal de los debates y primer pico de conversación electoral."
+
+  - event_id: tse_cierre_encuentros_2026_01_12
+    formal: true
+    formal_order: 2
+    active: true
+    event_name: "Cierre de la serie de encuentros del TSE"
+    event_date: "2026-01-12"
+    event_start_local: "2026-01-12 19:00:00"
+    event_end_local: "2026-01-12 21:00:00"
+    timezone: "America/Costa_Rica"
+    event_type: "debate_tse"
+    collection_window:
+      start: "2026-01-11 19:00:00-06:00"
+      end: "2026-01-13 21:00:00-06:00"
+    search_profile:
+      include_groups:
+        - formal_tse_encounters
+        - campaign_general
+        - campaign_events
+        - candidates_main
+        - parties_main
+        - institutions
+      optional_groups:
+        - government_context
+      exclude_groups: []
+    notes: "Cierre de narrativa, reacciones y comparaciones entre candidaturas."
+
+  - event_id: repretel_monumental_2026_01_27
+    formal: true
+    formal_order: 3
+    active: true
+    event_name: "Debate de Repretel y Radio Monumental"
+    event_date: "2026-01-27"
+    event_start_local: "2026-01-27 19:30:00"
+    event_end_local: "2026-01-27 21:30:00"
+    timezone: "America/Costa_Rica"
+    event_type: "debate_mediatico"
+    collection_window:
+      start: "2026-01-26 19:30:00-06:00"
+      end: "2026-01-28 21:30:00-06:00"
+    search_profile:
+      include_groups:
+        - formal_repretel_monumental
+        - campaign_general
+        - campaign_events
+        - candidates_main
+        - parties_main
+      optional_groups:
+        - government_context
+      exclude_groups: []
+    notes: "Debate de alta circulación mediática y digital en la recta final."
+
+  - event_id: cierre_campana_2026_01_28
+    formal: true
+    formal_order: 4
+    active: true
+    event_name: "Cierre definitivo de campaña"
+    event_date: "2026-01-28"
+    event_start_local: "2026-01-28 00:00:00"
+    event_end_local: "2026-01-28 23:59:59"
+    timezone: "America/Costa_Rica"
+    event_type: "cierre_campana"
+    collection_window:
+      start: "2026-01-27 00:00:00-06:00"
+      end: "2026-01-29 23:59:59-06:00"
+    search_profile:
+      include_groups:
+        - formal_campaign_close
+        - campaign_general
+        - campaign_events
+        - candidates_main
+        - parties_main
+        - institutions
+      optional_groups:
+        - government_context
+      exclude_groups: []
+    notes: "Punto de tensión previa a la votación; cierre formal y conversación orgánica."
+
+  - event_id: jornada_electoral_2026_02_01
+    formal: true
+    formal_order: 5
+    active: true
+    event_name: "Jornada electoral"
+    event_date: "2026-02-01"
+    event_start_local: "2026-02-01 06:00:00"
+    event_end_local: "2026-02-01 18:00:00"
+    timezone: "America/Costa_Rica"
+    event_type: "jornada_electoral"
+    collection_window:
+      start: "2026-01-31 06:00:00-06:00"
+      end: "2026-02-02 18:00:00-06:00"
+    search_profile:
+      include_groups:
+        - formal_election_day
+        - campaign_general
+        - candidates_main
+        - parties_main
+        - institutions
+      optional_groups:
+        - government_context
+      exclude_groups: []
+    notes: "Día central de participación ciudadana, seguimiento en tiempo real, resultados y reacciones."

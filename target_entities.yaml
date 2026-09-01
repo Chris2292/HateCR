@@ -1,0 +1,347 @@
+metadata:
+  project: HateCR
+  version: "0.1.0"
+  last_updated: "2026-07-16"
+  purpose: "Catalogo auditable para inferir blancos probables de hostilidad y odio."
+  notes:
+    - "Una mencion no equivale automaticamente a un ataque."
+    - "context_aliases solo se usan en el post madre y producen evidencia de baja confianza."
+    - "Los medios activos se agregan desde config/media_accounts.yaml usando sus handles."
+    - "potential_identity_basis indica una dimension posible; nunca confirma por si sola discurso de odio."
+    - "mention_count_aliases amplia solo el censo de menciones y no interviene en la asignacion automatica del blanco."
+
+settings:
+  include_active_media_accounts: true
+  media_handles_are_audit_only: true
+  direct_offense_max_token_distance: 8
+
+targets:
+  - target_id: "laura_fernandez"
+    target_label: "Laura Fernandez"
+    target_type: "person"
+    aliases: ["Laura Fernandez"]
+    context_aliases: ["Fernandez"]
+    potential_identity_basis: "none"
+
+  - target_id: "fabricio_alvarado"
+    target_label: "Fabricio Alvarado"
+    target_type: "person"
+    aliases: ["Fabricio Alvarado"]
+    context_aliases: ["Fabricio"]
+    potential_identity_basis: "none"
+
+  - target_id: "alvaro_ramos"
+    target_label: "Alvaro Ramos"
+    target_type: "person"
+    aliases: ["Alvaro Ramos"]
+    context_aliases: ["Ramos"]
+    potential_identity_basis: "none"
+
+  - target_id: "claudia_dobles"
+    target_label: "Claudia Dobles"
+    target_type: "person"
+    aliases: ["Claudia Dobles"]
+    context_aliases: ["Dobles"]
+    potential_identity_basis: "none"
+
+  - target_id: "ariel_robles"
+    target_label: "Ariel Robles"
+    target_type: "person"
+    aliases: ["Ariel Robles"]
+    context_aliases: ["Robles"]
+    potential_identity_basis: "none"
+
+  - target_id: "juan_carlos_hidalgo"
+    target_label: "Juan Carlos Hidalgo"
+    target_type: "person"
+    aliases: ["Juan Carlos Hidalgo"]
+    context_aliases: ["Hidalgo"]
+    potential_identity_basis: "none"
+
+  - target_id: "eliecer_feinzaig"
+    target_label: "Eliecer Feinzaig"
+    target_type: "person"
+    aliases: ["Eliecer Feinzaig"]
+    context_aliases: ["Feinzaig"]
+    potential_identity_basis: "none"
+
+  - target_id: "natalia_diaz"
+    target_label: "Natalia Diaz"
+    target_type: "person"
+    aliases: ["Natalia Diaz"]
+    context_aliases: []
+    potential_identity_basis: "none"
+
+  - target_id: "rodrigo_chaves"
+    target_label: "Rodrigo Chaves"
+    target_type: "person"
+    aliases: ["Rodrigo Chaves"]
+    context_aliases: ["Chaves"]
+    potential_identity_basis: "none"
+
+  - target_id: "pilar_cisneros"
+    target_label: "Pilar Cisneros"
+    target_type: "person"
+    aliases: ["Pilar Cisneros"]
+    context_aliases: []
+    potential_identity_basis: "none"
+
+  - target_id: "claudio_alpizar"
+    target_label: "Claudio Alpizar"
+    target_type: "person"
+    aliases: ["Claudio Alpizar"]
+    context_aliases: []
+    potential_identity_basis: "none"
+
+  - target_id: "luis_amador"
+    target_label: "Luis Amador"
+    target_type: "person"
+    aliases: ["Luis Amador"]
+    context_aliases: []
+    potential_identity_basis: "none"
+
+  - target_id: "fernando_zamora"
+    target_label: "Fernando Zamora"
+    target_type: "person"
+    aliases: ["Fernando Zamora"]
+    context_aliases: []
+    potential_identity_basis: "none"
+
+  - target_id: "walter_hernandez"
+    target_label: "Walter Hernandez"
+    target_type: "person"
+    aliases: ["Walter Hernandez"]
+    context_aliases: []
+    potential_identity_basis: "none"
+
+  - target_id: "boris_molina"
+    target_label: "Boris Molina"
+    target_type: "person"
+    aliases: ["Boris Molina"]
+    context_aliases: []
+    potential_identity_basis: "none"
+
+  - target_id: "ronny_castillo"
+    target_label: "Ronny Castillo"
+    target_type: "person"
+    aliases: ["Ronny Castillo"]
+    context_aliases: []
+    potential_identity_basis: "none"
+
+  - target_id: "david_hernandez"
+    target_label: "David Hernandez"
+    target_type: "person"
+    aliases: ["David Hernandez"]
+    context_aliases: []
+    potential_identity_basis: "none"
+
+  - target_id: "luz_mary_alpizar"
+    target_label: "Luz Mary Alpizar"
+    target_type: "person"
+    aliases: ["Luz Mary Alpizar"]
+    context_aliases: []
+    potential_identity_basis: "none"
+
+  - target_id: "ppso"
+    target_label: "Pueblo Soberano (PPSO)"
+    target_type: "party"
+    aliases: ["Pueblo Soberano", "PPSO"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "nueva_republica"
+    target_label: "Nueva Republica (PNR)"
+    target_type: "party"
+    aliases: ["Nueva Republica", "PNR"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "pln"
+    target_label: "Liberacion Nacional (PLN)"
+    target_type: "party"
+    aliases: ["Liberacion Nacional", "PLN"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "frente_amplio"
+    target_label: "Frente Amplio"
+    target_type: "party"
+    aliases: ["Frente Amplio"]
+    mention_count_aliases: ["Fraude Amplio"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "pusc"
+    target_label: "Unidad Social Cristiana (PUSC)"
+    target_type: "party"
+    aliases: ["Unidad Social Cristiana", "PUSC"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "plp"
+    target_label: "Liberal Progresista (PLP)"
+    target_type: "party"
+    aliases: ["Liberal Progresista", "PLP"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "agenda_ciudadana"
+    target_label: "Coalicion Agenda Ciudadana"
+    target_type: "party"
+    aliases: ["Coalicion Agenda Ciudadana", "Agenda Ciudadana"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "psd"
+    target_label: "Progreso Social Democratico (PSD)"
+    target_type: "party"
+    aliases: ["Progreso Social Democratico", "PSD"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "pin"
+    target_label: "Integracion Nacional (PIN)"
+    target_type: "party"
+    aliases: ["Integracion Nacional", "PIN"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "png"
+    target_label: "Nueva Generacion (PNG)"
+    target_type: "party"
+    aliases: ["Nueva Generacion", "PNG"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "esperanza_nacional"
+    target_label: "Esperanza Nacional"
+    target_type: "party"
+    aliases: ["Esperanza Nacional"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "esperanza_libertad"
+    target_label: "Esperanza y Libertad"
+    target_type: "party"
+    aliases: ["Esperanza y Libertad"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "justicia_social"
+    target_label: "Justicia Social Costarricense"
+    target_type: "party"
+    aliases: ["Justicia Social Costarricense"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "unidos_podemos"
+    target_label: "Unidos Podemos"
+    target_type: "party"
+    aliases: ["Unidos Podemos"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "union_costarricense_democratica"
+    target_label: "Union Costarricense Democratica"
+    target_type: "party"
+    aliases: ["Union Costarricense Democratica"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "aqui_costa_rica_manda"
+    target_label: "Aqui Costa Rica Manda"
+    target_type: "party"
+    aliases: ["Aqui Costa Rica Manda"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "avanza"
+    target_label: "Avanza"
+    target_type: "party"
+    aliases: ["Avanza"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "alianza_costa_rica_primero"
+    target_label: "Alianza Costa Rica Primero"
+    target_type: "party"
+    aliases: ["Alianza Costa Rica Primero"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "tse"
+    target_label: "Tribunal Supremo de Elecciones (TSE)"
+    target_type: "institution"
+    aliases: ["Tribunal Supremo de Elecciones", "TSE"]
+    context_aliases: []
+    potential_identity_basis: "none"
+
+  - target_id: "casa_presidencial"
+    target_label: "Casa Presidencial"
+    target_type: "institution"
+    aliases: ["Casa Presidencial"]
+    context_aliases: ["Zapote"]
+    potential_identity_basis: "none"
+
+  - target_id: "oficialismo"
+    target_label: "Oficialismo"
+    target_type: "ideological_group"
+    aliases: ["oficialismo", "partido oficialista", "candidato oficialista", "candidata oficialista"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "chavismo"
+    target_label: "Chavismo / personas chavistas"
+    target_type: "ideological_group"
+    aliases: ["chavismo", "chavista", "pro chaves", "prochaves"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "antichavismo"
+    target_label: "Antichavismo"
+    target_type: "ideological_group"
+    aliases: ["anti chaves", "antichaves"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "izquierda_comunismo"
+    target_label: "Izquierda / comunismo"
+    target_type: "ideological_group"
+    aliases: ["izquierda", "comunismo", "comunista"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "derecha"
+    target_label: "Derecha"
+    target_type: "ideological_group"
+    aliases: ["derecha"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "populismo"
+    target_label: "Populismo / personas populistas"
+    target_type: "ideological_group"
+    aliases: ["populismo", "populista"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "neoliberalismo"
+    target_label: "Neoliberalismo / personas neoliberales"
+    target_type: "ideological_group"
+    aliases: ["neoliberal"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "conservadurismo"
+    target_label: "Conservadurismo / personas conservadoras"
+    target_type: "ideological_group"
+    aliases: ["conservador", "agenda conservadora"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"
+
+  - target_id: "progresismo"
+    target_label: "Progresismo / personas progresistas"
+    target_type: "ideological_group"
+    aliases: ["progresista", "agenda progresista"]
+    context_aliases: []
+    potential_identity_basis: "political_ideological"

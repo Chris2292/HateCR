@@ -1,0 +1,221 @@
+metadata:
+  project: "HateCR"
+  version: "0.5.0"
+  last_updated: "2026-07-11"
+  schema_purpose: >-
+    Guia operativa de cuatro niveles para clasificar interacciones ancladas
+    en medios costarricenses durante la campana electoral 2025-2026.
+
+scope:
+  analysis_unit: "media_anchored_interaction"
+  language_primary: "es"
+  platform: "X"
+  election_cycle: "Costa Rica 2025-2026"
+  corpus_scope: "media_anchored"
+
+classification_design:
+  canonical_field: "hostility_relevance"
+  nature: "hierarchical_priority_taxonomy"
+  warning: >-
+    Los niveles no forman una escala pura de severidad. El nivel 3 se define
+    por el fundamento identitario, cultural o ideologico del ataque y tiene
+    prioridad sobre los niveles 1 y 2.
+  decision_priority:
+    - "Ataque basado en identidad, cultura o adscripcion ideologica: nivel 3."
+    - "Deseo, amenaza, aprobacion o llamado al dano sin ataque identitario: nivel 2."
+    - "Insulto, burla o descalificacion sin violencia ni ataque identitario: nivel 1."
+    - "Ausencia de las condiciones anteriores: nivel 0."
+
+label_levels:
+  - value: 0
+    label_id: "not_offensive"
+    label_name: "No ofensivo ni odio"
+    description: >-
+      Informacion, apoyo, desacuerdo o critica sin insulto, deseo de dano ni
+      ataque contra personas o grupos por lo que son.
+    include_rules:
+      - "Critica a decisiones, programas, instituciones o ideologias sin degradar a sus integrantes."
+      - "Mencion o cita de lenguaje hostil para rechazarlo, sin respaldo del autor del comentario."
+      - "Lenguaje negativo o enfatico que no constituye un ataque personal o grupal."
+    exclude_rules:
+      - "Insulto, burla o descalificacion dirigida."
+      - "Deseo, amenaza o celebracion de dano."
+      - "Ataque basado en identidad, cultura o ideologia."
+
+  - value: 1
+    label_id: "incivility_disqualification"
+    label_name: "Incivilidad y descalificacion"
+    description: >-
+      Insulto, burla, desprecio o descalificacion dirigida, sin deseo de dano
+      y sin fundamentar el ataque en una identidad, cultura o ideologia.
+    include_rules:
+      - "Insulto interpersonal contra una figura politica, medio u otro usuario."
+      - "Ridiculizacion o menosprecio dirigido."
+      - "Descalificacion de capacidad, honestidad o inteligencia usada como ataque."
+    exclude_rules:
+      - "Desacuerdo o critica argumentada sin ataque personal."
+      - "Amenaza, deseo o aprobacion de dano."
+      - "Ataque a una persona o grupo por identidad, cultura o adscripcion ideologica."
+
+  - value: 2
+    label_id: "violent_hostility_non_identity"
+    label_name: "Hostilidad con componente de dano"
+    description: >-
+      Deseo, amenaza, aprobacion, celebracion o llamado a dano fisico o grave
+      contra una persona o entidad, sin que el motivo principal sea una
+      identidad, cultura o adscripcion ideologica.
+    include_rules:
+      - "Expresar que se desea que a una persona le ocurra algo malo."
+      - "Amenazar o pedir agresion contra un individuo por sus actos o cargo."
+      - "Celebrar o justificar dano sufrido por el objetivo."
+    exclude_rules:
+      - "Metaforas politicas convencionales sin dano plausible ni deseo de dano."
+      - "Ataques basados en identidad, cultura o ideologia, que corresponden al nivel 3."
+
+  - value: 3
+    label_id: "identity_cultural_ideological_attack"
+    label_name: "Ataque identitario, cultural o ideologico"
+    description: >-
+      Ataque contra un grupo o individuo por una identidad real, percibida o
+      atribuida, incluida para HateCR la adscripcion cultural, religiosa o
+      politico-ideologica. Puede incluir desprecio, generalizacion negativa,
+      exclusion, deshumanizacion o violencia.
+    include_rules:
+      - "Generalizacion degradante sobre integrantes de un grupo identitario, cultural o ideologico."
+      - "Ataque a una persona por pertenecer, o ser presentada como perteneciente, a ese grupo."
+      - "Llamado a excluir, danar o eliminar a integrantes del grupo."
+    exclude_rules:
+      - "Critica a una doctrina, partido, propuesta o institucion sin atacar a las personas por pertenecer a ella."
+      - "Mencion neutral de una identidad o etiqueta politica."
+      - "Insulto personal sin relacion causal con identidad, cultura o ideologia."
+
+identity_factors:
+  general_reference:
+    - "etnia_raza"
+    - "nacionalidad_migracion"
+    - "religion_creencia"
+    - "genero_identidad_genero"
+    - "orientacion_sexual"
+    - "discapacidad_salud"
+    - "lengua_origen_social_cultural"
+  hatecr_project_specific:
+    - "ideologia_politica"
+    - "afiliacion_o_adscripcion_politica"
+  interpretation_note: >-
+    La inclusion de ideologia y adscripcion politica es una decision operativa
+    del proyecto. No constituye por si sola una determinacion juridica de
+    discurso de odio.
+
+manual_annotation_contract:
+  sampling_note: >-
+    La muestra formal esta enriquecida mediante categorias del lexicon y se
+    complementa con engagement y seleccion aleatoria. No es una muestra
+    probabilistica de la prevalencia de hostilidad en el corpus completo.
+  human_entered_fields:
+    hostility_relevance:
+      type: "categorical_integer"
+      allowed_values: [0, 1, 2, 3]
+      meaning: "Nivel asignado mediante la taxonomia jerarquica de HateCR."
+      required_for_training: true
+    manual_hostility:
+      type: "binary_integer"
+      allowed_values: [0, 1]
+      meaning: "0 = no se encontro hostilidad o incivilidad; 1 = si se encontro."
+      required_for_training: true
+    manual_hate_speech:
+      type: "binary_integer"
+      allowed_values: [0, 1]
+      meaning: "0 = no se encontro discurso de odio; 1 = si se encontro."
+      required_for_training: true
+    notes:
+      type: "free_text_optional"
+      meaning: "Contexto, duda o justificacion breve para casos ambiguos."
+  derived_fields:
+    y_hostility:
+      rule: "Copia normalizada de manual_hostility; no se infiere para sustituir la decision humana."
+    y_severe_or_identity:
+      rule: "1 si hostility_relevance esta en [2, 3]; 0 si esta en [0, 1]."
+      warning: "Combina dos mecanismos distintos y no debe denominarse violencia."
+    y_hate_speech:
+      rule: "Copia normalizada de manual_hate_speech; no se infiere para sustituir la decision humana."
+      note: "Es una definicion operativa del proyecto, no una conclusion juridica."
+    y_hostility_multiclass:
+      rule: "Copia del nivel canonico 0, 1, 2 o 3."
+    manual_hostility_from_relevance:
+      rule: "Valor esperado para control: 0 en nivel 0 y 1 en niveles 1, 2 y 3."
+    manual_hate_speech_from_relevance:
+      rule: "Valor esperado para control: 1 en nivel 3 y 0 en niveles 0, 1 y 2."
+  expected_pattern_by_level:
+    enforcement: "warning_only"
+    note: >-
+      Es un patron orientativo para detectar casos que merecen revision. Las
+      etiquetas binarias son decisiones humanas independientes y una diferencia
+      con este patron no excluye automaticamente la fila del entrenamiento.
+    rows:
+      - hostility_relevance: 0
+        manual_hostility: 0
+        manual_hate_speech: 0
+      - hostility_relevance: 1
+        manual_hostility: 1
+        manual_hate_speech: 0
+      - hostility_relevance: 2
+        manual_hostility: 1
+        manual_hate_speech: 0
+      - hostility_relevance: 3
+        manual_hostility: 1
+        manual_hate_speech: 1
+  methodological_key: >-
+    Hostilidad e incivilidad no equivalen a discurso de odio. Un registro puede
+    tener manual_hostility=1 y manual_hate_speech=0. El caso inverso no es
+    coherente con la definicion operativa del proyecto.
+
+annotation_rules:
+  unit_of_evidence: "Texto visible del comentario y contexto disponible del post ancla."
+  conservative_rule: >-
+    Si no hay evidencia suficiente para el nivel superior, asignar el nivel
+    inferior respaldado por el texto y registrar la duda en notes.
+  quotation_rule: >-
+    Una cita no hereda automaticamente la etiqueta del contenido citado. Se
+    debe decidir si quien comenta lo respalda, lo rechaza o solo lo reporta.
+  identity_rule: >-
+    Criticar una idea no equivale a atacar a sus adherentes. El nivel 3 exige
+    que el desprecio o dano recaiga sobre personas o grupos por esa adscripcion.
+  lexicon_rule: >-
+    Una coincidencia del lexicon sirve para localizar casos, pero nunca
+    determina por si sola la etiqueta manual.
+  binary_labels_rule: >-
+    manual_hostility y manual_hate_speech son decisiones humanas binarias
+    separadas. Los valores esperados por nivel solo generan advertencias para
+    revision y nunca invalidan, completan ni sobrescriben la anotacion.
+
+annotation_protocol:
+  disagreement_policy:
+    double_coding_ratio: 0.2
+    adjudication_required: true
+  quality_control:
+    target_intercoder_metric: "weighted_cohens_kappa"
+    secondary_metric: "macro_f1_by_level"
+    minimum_kappa: 0.70
+    recalibration_when_below_threshold: true
+  pilot_recommendation:
+    calibration_rows: 30
+    action: >-
+      Etiquetar primero una submuestra, comparar desacuerdos y ajustar ejemplos
+      antes de completar toda la muestra.
+
+methodological_references:
+  - id: "muddiman_2017"
+    contribution: "Distingue incivilidad interpersonal de dimensiones publicas de incivilidad."
+    url: "https://ijoc.org/index.php/ijoc/article/view/6137"
+  - id: "davidson_et_al_2017"
+    contribution: "Separa lenguaje ofensivo, discurso de odio y contenido no ofensivo."
+    url: "https://ojs.aaai.org/index.php/ICWSM/article/view/14955"
+  - id: "zampieri_et_al_2019"
+    contribution: "Propone anotacion jerarquica del tipo y objetivo del lenguaje ofensivo."
+    url: "https://aclanthology.org/N19-1144/"
+  - id: "basile_et_al_2019"
+    contribution: "Distingue odio, agresividad y tipo de objetivo en mensajes de X/Twitter."
+    url: "https://aclanthology.org/S19-2007/"
+  - id: "un_hate_speech_strategy"
+    contribution: "Marco de referencia para ataques basados en factores de identidad."
+    url: "https://www.un.org/en/hate-speech/understanding-hate-speech/what-is-hate-speech"

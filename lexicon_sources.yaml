@@ -1,0 +1,53 @@
+metadata:
+  project: "HateCR"
+  version: "0.1.0"
+  last_updated: "2026-05-19"
+  purpose: "Registro de fuentes lexicas para integracion manual y trazable."
+
+policy:
+  ingestion_mode: "manual_only_for_now"
+  external_download_enabled: false
+  notes:
+    - "No descargar automaticamente en esta etapa."
+    - "No incluir scraping ni extraccion no autorizada."
+    - "Documentar licencia y fecha de cada recurso agregado."
+
+target_files:
+  hatecr_core_lexicon:
+    expected_output_path: "lexicons/processed/hatecr_lexicon.csv"
+    required_columns:
+      - "term"
+      - "category"
+    optional_columns:
+      - "weight"
+      - "source"
+      - "notes"
+
+  sentiment_lexicon_optional:
+    expected_output_path: "lexicons/processed/sentiment_lexicon.csv"
+    required_columns:
+      - "term"
+      - "polarity"
+    optional_columns:
+      - "weight"
+      - "source"
+
+  emotions_lexicon_optional:
+    expected_output_path: "lexicons/processed/emotions_lexicon.csv"
+    required_columns:
+      - "term"
+      - "emotion"
+    optional_columns:
+      - "weight"
+      - "source"
+
+manual_sources_registry:
+  - source_id: "pending_source_01"
+    name: "Por definir"
+    type: "academic_or_open_resource"
+    language: "es"
+    license: "por validar"
+    original_location: "por completar manualmente"
+    ingestion_status: "pending"
+    mapped_to_target_file: "lexicons/processed/hatecr_lexicon.csv"
+    notes: "Agregar solo despues de revision metodologica y legal."

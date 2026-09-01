@@ -1,0 +1,191 @@
+metadata:
+  project: HateCR
+  version: "0.2.0"
+  last_updated: "2026-05-26"
+  notes:
+    - "Catalogo ampliado de cuentas de medios costarricenses para identificar posts madre."
+    - "Los handles y user_ids deben validarse con API oficial antes de recolectar."
+
+platform_policy:
+  platform: "X"
+  data_access: "official_api_only"
+  credentials_source: ".env"
+  prohibited_methods:
+    - "aggressive_scraping"
+    - "automation_to_bypass_restrictions"
+    - "proxy_rotation_evasion"
+    - "unauthorized_data_extraction"
+
+account_selection_criteria:
+  - "Cobertura nacional durante campana 2025-2026."
+  - "Publicacion regular de contenido politico-electoral."
+  - "Alto volumen potencial de respuestas/comentarios."
+
+media_accounts:
+  # Prensa / digital nacional
+  - media_id: "nacion"
+    media_name: "La Nación"
+    media_type: "newspaper"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "nacion"
+
+  - media_id: "crhoy"
+    media_name: "CRHoy"
+    media_type: "digital"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "crhoycom"
+
+  - media_id: "larepublica"
+    media_name: "La República"
+    media_type: "digital_newspaper"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "La_Republica"
+
+  - media_id: "delfino"
+    media_name: "Delfino.cr"
+    media_type: "digital"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "delfinocrc"
+
+  - media_id: "observador_cr"
+    media_name: "El Observador CR"
+    media_type: "digital"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "observador_cr"
+
+  - media_id: "elmundo_cr"
+    media_name: "El Mundo CR"
+    media_type: "digital"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "ElMundoCR"
+
+  - media_id: "diario_extra"
+    media_name: "Diario Extra"
+    media_type: "newspaper"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "DiarioExtraCR"
+
+  - media_id: "semanario_u"
+    media_name: "Semanario Universidad"
+    media_type: "university_media"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "SemanarioU"
+
+  # Televisión / noticieros
+  - media_id: "teletica"
+    media_name: "Teletica"
+    media_type: "tv"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "teleticacom"
+
+  - media_id: "telenoticias7"
+    media_name: "Telenoticias"
+    media_type: "tv_news"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "Telenoticias7"
+
+  - media_id: "repretel"
+    media_name: "Repretel"
+    media_type: "tv"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "RepretelCR"
+
+  - media_id: "multimedios"
+    media_name: "Multimedios Costa Rica / Telediario"
+    media_type: "tv_news"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "multimedioscr"
+
+  - media_id: "noticias_repretel"
+    media_name: "Noticias Repretel"
+    media_type: "tv_news"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "noticiarepretel"
+
+  - media_id: "sinart"
+    media_name: "SINART / Canal 13"
+    media_type: "public_tv"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "trececostarica"
+
+  # Radio / noticias
+  - media_id: "monumental"
+    media_name: "Noticias Monumental"
+    media_type: "radio_news"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "nmonumental"
+
+  - media_id: "columbia"
+    media_name: "Noticias Columbia"
+    media_type: "radio_news"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "ColumbiaCR"
+
+  - media_id: "ameliarueda"
+    media_name: "AmeliaRueda.com"
+    media_type: "radio_digital"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "ameliarueda"
+
+  - media_id: "adn_radio"
+    media_name: "ADN Radio Costa Rica"
+    media_type: "radio_news"
+    scope: "national"
+    active: true
+    x_identity:
+      handle: "adnradio90_7"
+
+  # Inglés / internacional con foco Costa Rica
+  - media_id: "ticotimes"
+    media_name: "The Tico Times"
+    media_type: "digital"
+    scope: "national_international"
+    active: true
+    x_identity:
+      handle: "TheTicoTimes"
+
+integration_rules:
+  link_field_in_events: "media_id"
+  post_madre_definition: "Publicacion fuente emitida por cuenta de medio seleccionada."
+  minimal_fields_for_source_post:
+    - "event_id"
+    - "media_id"
+    - "source_post_id"
+    - "source_post_text"
+    - "source_post_created_at"
+    - "source_post_url"
+    - "source_post_public_metrics"

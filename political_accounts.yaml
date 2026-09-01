@@ -1,0 +1,62 @@
+metadata:
+  project: HateCR
+  version: "0.1.0"
+  last_updated: "2026-05-24"
+  notes:
+    - "Listado inicial de actores politicos para capa opcional de interacciones dirigidas."
+    - "Completar handles oficiales antes de recolectar esta capa."
+
+political_accounts:
+  - actor_id: "laura_fernandez"
+    actor_name: "Laura Fernandez"
+    actor_type: "candidate"
+    x_handle: ""
+    active: true
+
+  - actor_id: "fabricio_alvarado"
+    actor_name: "Fabricio Alvarado"
+    actor_type: "candidate"
+    x_handle: ""
+    active: true
+
+  - actor_id: "alvaro_ramos"
+    actor_name: "Alvaro Ramos"
+    actor_type: "candidate"
+    x_handle: ""
+    active: true
+
+  - actor_id: "claudia_dobles"
+    actor_name: "Claudia Dobles"
+    actor_type: "candidate"
+    x_handle: ""
+    active: true
+
+  - actor_id: "ariel_robles"
+    actor_name: "Ariel Robles"
+    actor_type: "candidate"
+    x_handle: ""
+    active: true
+
+  - actor_id: "juan_carlos_hidalgo"
+    actor_name: "Juan Carlos Hidalgo"
+    actor_type: "candidate"
+    x_handle: ""
+    active: true
+
+  - actor_id: "eliecer_feinzaig"
+    actor_name: "Eliecer Feinzaig"
+    actor_type: "candidate"
+    x_handle: ""
+    active: true
+
+  - actor_id: "natalia_diaz"
+    actor_name: "Natalia Diaz"
+    actor_type: "candidate"
+    x_handle: ""
+    active: true
+
+  - actor_id: "tse"
+    actor_name: "Tribunal Supremo de Elecciones"
+    actor_type: "institution"
+    x_handle: ""
+    active: true
