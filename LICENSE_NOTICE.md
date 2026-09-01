@@ -1,11 +1,11 @@
 # Aviso de derechos y licencias
 
-No se ha otorgado todavía una licencia de código abierto para este repositorio. Salvo indicación expresa en contrario, el código y la documentación permanecen con todos los derechos reservados por la autoría del proyecto HateCR.
+Por ser un trabajo desde las humanidades digitales y con mentalidad open source, se puede conceder acceso a los siguientes elementos con en el fin de la reproducibilidad y revisión de pares como es:
+- datasets incluidos en el repositorio;
 
 Este aviso no concede derechos sobre:
 
 - contenido de X;
-- datasets no incluidos en el repositorio;
 - lexicones, modelos lingüísticos o recursos de terceros;
 - marcas, nombres o materiales pertenecientes a terceros.
 
